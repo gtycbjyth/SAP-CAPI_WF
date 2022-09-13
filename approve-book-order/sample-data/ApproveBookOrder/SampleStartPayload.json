@@ -1,0 +1,19 @@
+{
+    "WorkflowDetails": {
+        "title": "Book(s) in order",
+        "comment": "Please Approve"
+    },
+    "BookOrder": {
+        "orderUUID": "0640bc67-f03d-4a85-ae9f-ebb99b4e5520",
+        "bookName": "Harry",
+        "authorfirstName": "Richard",
+        "authorlastName": "Carpenter",
+        "CurrencyCode_code": "EUR",
+        "LocalCurrencyCode_code": "BYN",
+        "price": 160,
+        "quantity": 10,
+        "status_ID": "1",
+        "totalPrice": 1600,
+        "totalLocal": 4000
+    }
+}

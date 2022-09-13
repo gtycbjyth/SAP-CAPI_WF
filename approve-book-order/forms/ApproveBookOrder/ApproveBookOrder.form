@@ -1,0 +1,179 @@
+{
+    "id": "approvebookorder",
+    "schemaVersion": "1.1.0",
+    "name": "ApproveBookOrder",
+    "revision": "1.0",
+    "type": "task",
+    "readOnly": false,
+    "content": [
+        {
+            "id": "book_order_details",
+            "type": "section",
+            "title": "Book Order Details",
+            "content": [
+                {
+                    "id": "book_name",
+                    "type": "string",
+                    "label": "Book Name",
+                    "readOnly": true,
+                    "value": "${context.BookOrder.bookName}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "author",
+                    "type": "string",
+                    "label": "Author",
+                    "readOnly": false,
+                    "value": "${context.BookOrderCalcFields.author}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "price",
+                    "type": "string",
+                    "label": "Price",
+                    "readOnly": false,
+                    "value": "${context.BookOrderCalcFields.priceWithCurrencyCode}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "quantity",
+                    "type": "string",
+                    "label": "Quantity",
+                    "readOnly": false,
+                    "value": "${context.BookOrder.quantity}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "total_price",
+                    "type": "string",
+                    "label": "Total Price",
+                    "readOnly": false,
+                    "value": "${context.BookOrderCalcFields.totalPriceWithCurrencyCode}",
+                    "constraints": {
+                        "required": false
+                    }
+                },
+                {
+                    "id": "total_local_price",
+                    "type": "string",
+                    "label": "Total Local  Price",
+                    "readOnly": false,
+                    "value": "${context.BookOrderCalcFields.totalLocalPriceWithLocalCurrencyCode}",
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "decision",
+            "type": "section",
+            "title": "",
+            "content": [
+                {
+                    "id": "comment",
+                    "type": "string",
+                    "label": "Comment",
+                    "readOnly": false,
+                    "value": "${context.WorkFlowDetails.comment}",
+                    "control": {
+                        "type": "TextArea",
+                        "properties": {
+                            "height": "medium"
+                        }
+                    },
+                    "constraints": {
+                        "required": false
+                    }
+                }
+            ]
+        },
+        {
+            "id": "history_",
+            "type": "section",
+            "title": "",
+            "content": [
+                {
+                    "id": "history",
+                    "type": "collection",
+                    "title": "History",
+                    "addEnabled": false,
+                    "deleteEnabled": false,
+                    "value": "${context.History}",
+                    "content": [
+                        {
+                            "id": "user",
+                            "type": "string",
+                            "label": "User",
+                            "readOnly": false,
+                            "value": "${item.User}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "role",
+                            "type": "string",
+                            "label": "Role",
+                            "readOnly": false,
+                            "value": "${item.Role}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "request_date",
+                            "type": "string",
+                            "label": "Request Date",
+                            "readOnly": false,
+                            "value": "${item.RequestDate}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "decision",
+                            "type": "string",
+                            "label": "Decision",
+                            "readOnly": false,
+                            "value": "${item.Decision}",
+                            "constraints": {
+                                "required": false
+                            }
+                        },
+                        {
+                            "id": "comment",
+                            "type": "string",
+                            "label": "Comment",
+                            "readOnly": false,
+                            "value": "${item.Comment}",
+                            "constraints": {
+                                "required": false
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "decisions": [
+        {
+            "id": "reject",
+            "text": "Reject",
+            "decisionType": "negative"
+        },
+        {
+            "id": "approve",
+            "text": "Approve",
+            "decisionType": "positive"
+        }
+    ]
+}
